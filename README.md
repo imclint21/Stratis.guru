@@ -3,4 +3,4 @@ The Stratis price in real time.
 
 https://stratis.guru
 
-!(https://pix.watch/pTtg1B/hyJbfA.png)
+![Stratis.guru](https://pix.watch/pTtg1B/hyJbfA.png)
