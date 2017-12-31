@@ -1,0 +1,102 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="stratis,strat,price,$strat,stratis price,strat price,strat-btc,bitcoin,cryptocurrency,crypto,cryptomonnaies">
+    <meta name="description" content="The Stratis price in real time.">
+    <meta name="author" content="Clint Mourlevat">
+    <link rel="icon" href="~/favicon.ico">
+    <title>Stratis.guru | Realtime Stratis Price</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/chartist.min.css" rel="stylesheet">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/Site.css" rel="stylesheet">
+</head>
+<body>
+    <div id="stratis-chart"></div>
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <header class="masthead clearfix">
+                    <div class="inner">
+                        <h3 class="masthead-brand"><a href="~/"><img src="~/Images/logo.png" class="logo" /> Stratis<span class="text-muted">.guru</span><sub class="text-muted hide">.guru</sub></a></h3>
+                        <nav class="nav nav-masthead">
+                            <a class="nav-link @(ViewBag.Active == "Index" ? "active":"")" href="~/">Home</a>
+                            <a class="nav-link" href="#">Explorer</a>
+                            <a class="nav-link @(ViewBag.Active == "Generator" ? "active":"")" href="@Url.RouteUrl("Generator")">Generator</a>
+                            <a class="nav-link" href="#">Contact</a>
+                            <!--<a class="nav-link" href="#"><i class="fa fa-bell text-white"></i></a>-->
+                            <a class="nav-link" href="#"><i class="fa fa-sliders text-white"></i></a>
+                        </nav>
+                    </div>
+                </header>
+                <main role="main" class="inner cover">
+                    @RenderBody()
+                </main>
+                <footer class="mastfoot">
+                    <div class="inner">
+                        <p>Created by <a href="https://about.me/clint-mourlevat" target="_blank">Clint Mourlevat</a> | Make donation : <a href="">SVfFxC98TzikR9fMqvxTgJW8BUHr3LwixG</a></p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
+    <script src="~/Scripts/chartist.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+            setInterval(function () {
+                $("#HomePrice").load("/home/HomePrice");
+                /*$.get("/api/price", function (e) {
+                    $("#stratis-price").text(e);
+                });*/
+                /*$.get("/api/percentchange?delay=24h", function (e) {
+                    $("#percent-change").html(e + " %");
+                    if (e < 0) {
+                        $("#percent-change").addClass("red");
+                    }
+                    else {
+                        $("#percent-change").addClass("green");
+                    }
+                });*/
+            }, 1000);
+
+            new Chartist.Line("#stratis-chart", {
+                series: [
+                    [5, 9, 7, 8, 5, 3, 5, 4]
+                ]
+            }, {
+                    low: 0,
+                    showArea: true,
+                    fullWidth: true,
+                    chartPadding: 0,
+                    axisX: {
+                        showLabel: false,
+                        showGrid: false,
+                        offset: 0
+                    },
+                    axisY: {
+                        showLabel: false,
+                        showGrid: false,
+                        offset: 0
+                    }
+                });
+        });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111742056-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-111742056-1');
+    </script>
+
+    <!--stratisguru-->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a48282c1ee2c396"></script>
+</body>
+</html>

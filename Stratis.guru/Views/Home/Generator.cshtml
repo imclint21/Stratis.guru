@@ -1,0 +1,22 @@
+﻿<div class="container" id="generator">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <img src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=@ViewBag.PRI&chld=L|1&choe=UTF-8" />
+            <h1 class="red">Clé Privé</h1>
+            <p>@ViewBag.PRI</p>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <img src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=@ViewBag.PUB&chld=L|1&choe=UTF-8" />
+            <h1 class="green">Clé Publique</h1>
+            <p>@ViewBag.PUB</p>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-muted">The keys are not saved in any database.</p>
+        </div>
+    </div>
+</div>
