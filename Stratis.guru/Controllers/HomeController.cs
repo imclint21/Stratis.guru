@@ -62,7 +62,7 @@ namespace Stratis.guru.Controllers
             using (var client = new WebClient())
             {
                 dynamic StratisTicket = JsonConvert.DeserializeObject(client.DownloadString("https://api.fixer.io/latest"));
-                return 1.19985;// Convert.ToDouble(StratisTicket.rates.USD);
+                return Convert.ToDouble(StratisTicket.rates.USD);
             }
         }
     }
